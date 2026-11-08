@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-light project-page">
+  <header class="site-header">
+    <a class="brand brand-home" href="index.html">Home</a>
+    <nav class="nav-main" id="site-nav" aria-label="Navigation principale"></nav>
+  </header>
+  <div class="header-rule" aria-hidden="true"></div>
+
+  <main id="project"></main>
+
+  <footer class="site-footer container" id="footer"></footer>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box" role="dialog" aria-modal="true">
+      <div class="modal-bar">
+        <span class="modal-title" id="modal-title"></span>
+        <div class="modal-actions" id="modal-actions"></div>
+        <button class="icon-btn" data-close aria-label="Fermer">✕</button>
+      </div>
+      <div class="modal-content" id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js?v=17"></script>
+  <script src="js/content.js?v=17"></script>
+  <script src="js/common.js?v=17"></script>
+  <script src="js/project.js?v=17"></script>
+</body>
+</html>

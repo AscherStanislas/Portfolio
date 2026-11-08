@@ -1,0 +1,1 @@
+System designer qui désire concevoir des projets de jeux et d'expérience tactique. Une mécanique n'est bonne que si elle est comprise : Je m'éfforce de les communiquer effiacement aux joueurs et a mon équipe !
