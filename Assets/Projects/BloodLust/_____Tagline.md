@@ -1,1 +1,1 @@
-3D brawler — Faites les saigner puis tuer les !
+3D brawler — Faites-les saigner, puis tuez-les !

@@ -1,1 +1,2 @@
-System designer qui désire concevoir des projets de jeux et d'expérience tactique. Une mécanique n'est bonne que si elle est comprise : Je m'éfforce de les communiquer effiacement aux joueurs et a mon équipe !
+Je suis un game designer passionné par le system design, et j'aime énormément travailler en équipe.  
+Je privilégie la communication et l'organisation au sein de l'équipe.  

@@ -1,5 +1,5 @@
 #### Présentation
 
-Bloodlust is a 3D brawler with a unique playstyle: hitting enemies doesn't kill them, it makes them bleed. When enemies are in the blood with you: kill them, no matter their HP.
+BloodLust est un brawler 3D au style de jeu unique : frapper les ennemis ne les tue pas, cela les fait saigner. Lorsque les ennemis se trouvent dans le sang avec vous, tuez-les, quels que soient leurs PV.
 
-Vampire power fantasy balanced with high-stakes health and execution chains.
+Une power fantasy vampirique, équilibrée par une gestion de la santé à hauts risques et des chaînes d'exécutions.

@@ -1,4 +1,6 @@
 const { profile, projects } = window.PORTFOLIO;
+applyLocale(profile);
+projects.forEach(applyLocale);
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -70,10 +72,10 @@ function showcaseBackgroundMedia(showcase, title) {
     return `<video class="banner-bg-media" autoplay muted loop playsinline preload="auto"
       aria-hidden="true" src="${esc(s.file)}"></video>`;
   }
-  return `<div class="banner-bg-fallback">${placeholder("Vidéo bannière", "var(--blue-400)", "banner-bg-media")}</div>`;
+  return `<div class="banner-bg-fallback">${placeholder(t("home.bannerPlaceholder"), "var(--blue-400)", "banner-bg-media")}</div>`;
 }
 
-function trailerMedia(trailer, title, { cover = "", accent = "var(--accent)", placeholderLabel = "Vidéo de projet" } = {}) {
+function trailerMedia(trailer, title, { cover = "", accent = "var(--accent)", placeholderLabel = t("project.videoPlaceholder") } = {}) {
   const t = trailer || {};
   if (t.youtube) {
     return `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(t.youtube)}?rel=0"
@@ -95,8 +97,8 @@ function externalLink(url, label, cls = "") {
 }
 
 function pageHref(hash) {
-  const onProject = /project\.html/i.test(location.pathname);
-  return onProject ? `index.html${hash}` : hash;
+  const onHome = /(^|\/)(index\.html)?$/i.test(location.pathname);
+  return onHome ? hash : `index.html${hash}`;
 }
 
 function navDropdown(label, sectionHash, category) {
@@ -106,7 +108,7 @@ function navDropdown(label, sectionHash, category) {
         <li role="none">
           <a role="menuitem" href="project.html?id=${encodeURIComponent(p.id)}">${esc(p.title)}</a>
         </li>`).join("")
-    : `<li class="nav-dropdown-empty" role="none">Aucun projet</li>`;
+    : `<li class="nav-dropdown-empty" role="none">${esc(t("nav.noProject"))}</li>`;
 
   return `
     <div class="nav-dropdown">
@@ -116,7 +118,7 @@ function navDropdown(label, sectionHash, category) {
       </button>
       <div class="nav-dropdown-panel" role="menu">
         <ul class="nav-dropdown-list">${list}</ul>
-        <a class="nav-dropdown-all" href="${esc(pageHref(sectionHash))}">Voir la section</a>
+        <a class="nav-dropdown-all" href="${esc(pageHref(sectionHash))}">${esc(t("nav.seeSection"))}</a>
       </div>
     </div>`;
 }
@@ -158,15 +160,22 @@ function renderSiteNav() {
   if (!nav) return;
 
   nav.innerHTML = `
-    ${navDropdown("Projet académique", "#projets-academiques", "academique")}
-    ${navDropdown("Projets perso", "#projets-perso", "perso")}
-    <a class="nav-link" href="${esc(pageHref("#about"))}">À propos</a>`;
+    ${navDropdown(t("nav.academic"), "#projets-academiques", "academique")}
+    ${navDropdown(t("nav.personal"), "#projets-perso", "perso")}
+    <a class="nav-link" href="${esc(pageHref("#about"))}">${esc(t("nav.about"))}</a>
+    <a class="nav-link" href="qui-suis-je.html">${esc(t("nav.whoami"))}</a>
+    <div class="lang-switch" role="group" aria-label="${esc(t("lang.switch"))}">
+      ${LANGS.map((l) => l === LANG
+        ? `<span class="lang-option is-active" aria-current="true">${l.toUpperCase()}</span>`
+        : `<a class="lang-option" href="${esc(langSwitchHref(l))}" hreflang="${l}" lang="${l}">${l.toUpperCase()}</a>`).join("")}
+    </div>`;
 
   bindNavDropdowns(nav);
 }
 
 function renderSharedChrome() {
   $$("[data-profile='name']").forEach((el) => (el.textContent = profile.name));
+  translateStatic();
   renderSiteNav();
   const footer = $("#footer");
   if (footer) {

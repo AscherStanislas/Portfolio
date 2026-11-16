@@ -1,7 +1,7 @@
-#### Bio
+### Bio
 
-I value collaboration and clear communication, and I enjoy working in team-oriented development environments.
+J'accorde une grande importance à la collaboration et à une communication claire ; j'apprécie tout particulièrement de travailler au sein d'équipes de développement.
 
-I'm a Game Designer specialized in economic and resource-based systems, focused on player decision-making and strategic depth.
+En tant que game designer, je me spécialise dans les systèmes économiques et de gestion de ressources, en mettant l'accent sur la prise de décision du joueur et la profondeur stratégique.
 
-I use prototyping as a design tool, turning theoretical models into testable systems through data-driven experiments and in-engine implementation.
+J'utilise le prototypage comme outil de conception : je transforme des modèles théoriques en systèmes testables, grâce à des expérimentations fondées sur des données et à une intégration directe dans le moteur de jeu.

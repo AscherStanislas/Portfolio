@@ -1,0 +1,3 @@
+- Writing the GDD and the economy design document
+- Project management between programmers and designers
+- Game design: iterating on and designing the core gameplay

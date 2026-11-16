@@ -1,1 +1,1 @@
-* Contributions à compléter
+* Contributions à venir

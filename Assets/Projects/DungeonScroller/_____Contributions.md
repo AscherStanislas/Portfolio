@@ -1,1 +1,3 @@
-* Contributions à compléter
+- Rédaction du GDD et du document d'economy design
+- Gestion de projet entre les programmeurs et les designers
+- Game design : itération et conception du gameplay de base

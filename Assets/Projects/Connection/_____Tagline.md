@@ -1,1 +1,1 @@
-Projet perso — contenu à compléter.
+Projet perso — contenu à venir.

@@ -1,16 +1,16 @@
 #### Workflow
 
-### Conception coop
+### Jeu coopératif
 
-* Coopération skill-based : l'équilibrage évite que le hasard seul décide la victoire
-* Communication limitée — indices couleur, lieu ou forme, jamais le nom des tuiles
+- Design de jeu coopératif : objectif de victoire partagé, itération sur les interactions possibles
+- Communication limitée : création de moyens de communication détournés pour garantir un challenge satisfaisant, et de plusieurs degrés de difficulté
 
 ### Équilibrage data-driven
 
-* Économie des cartes modélisée dans Excel (rounds « impossibles » ~30 % → niveaux acceptables)
-* Simulations → refonte complète de l'économie de cartes
+- Modélisation de la pioche et des probabilités sur Excel pour obtenir un jeu parfaitement équilibré
+- Simulations et refontes successives du système de pioche et de mains pour garantir une équité parfaite et bannir les situations hasardeuses
 
-### Co-design & playtest
+### Organisation des playtests
 
-* Mécaniques de coop / malentendu et malédictions (debuffs)
-* Playtests tout l'été avant le festival Orléans Joue
+- Réservation de salons, de cafés et de lieux propices aux playtests ; création de suivis de test et propositions de solutions pour corriger les problèmes de design
+- Présentation en festival : Orléans Joue

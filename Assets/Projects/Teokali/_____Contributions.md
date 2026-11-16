@@ -1,3 +1,3 @@
-* Card economy balancing in Excel — reduced « impossible rounds » from ~30% to acceptable levels
-* Co-design of cooperation / miscommunication mechanics and curse debuffs
-* Playtests all summer before the festival
+* Équilibrage de l'économie des cartes sur Excel — réduction des « manches impossibles » d'environ 30 % à un niveau acceptable
+* Co-design des mécaniques de coopération et de malentendu, ainsi que des malédictions (debuffs)
+* Playtests tout l'été avant le festival

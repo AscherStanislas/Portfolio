@@ -1,17 +1,16 @@
-### Hard skills 
+### Hard skills
 
-* System design : Ressource balancing, In-game economy, game loop
-* Level Design and blocking.
-* U.X Design : Rendre les systèmes accesible aux joueurs.
+* System design : équilibrage des ressources, économie in-game, game loop
+* Level design et blocking
+* UX design : rendre les systèmes accessibles aux joueurs
 
-### Logiciel maitrisé
+### Logiciels maîtrisés
 
-* Gestion de données et équilibrage : Python, Excel.
-* Moteur de jeux et scripting pour prototypage rapide : Unity et Unreal (Blueprint & C#)
-* Outils de blocking et de modélisations : Unreal Cubegrid.
+* Gestion de données et équilibrage : Python, Excel
+* Moteurs de jeu et scripting pour le prototypage rapide : Unity et Unreal (Blueprint et C#)
+* Outils de blocking et de modélisation : Unreal Cubegrid
 
 ### Soft skills
 
-- Gestion de projets : Organisation de l'équipe et différents corps de métiers (Hack N plan ; Trello)
-- Outils de documentation collaboratif : Création de documentation lisible et partagable (Notion, Miro)
--
+- Gestion de projet : organisation de l'équipe et des différents corps de métier (HacknPlan, Trello)
+- Outils de documentation collaborative : création de documentation lisible et partageable (Notion, Miro)

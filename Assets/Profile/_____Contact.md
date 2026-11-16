@@ -1,1 +1,1 @@
-Feel free to contact — je réponds dès que possible.
+N'hésitez pas à me contacter, je réponds dès que possible.

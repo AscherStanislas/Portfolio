@@ -4,7 +4,8 @@
  * Projet  : Assets/Projects/<Dossier>/  (dossier = contentDir ou déduit depuis previewGif / trailer)
  *
  * Blocs projet : Tagline, Pitch, Contributions, Workflow
- * Blocs profil  : Tagline, Bio, Skills, Contact
+ * Blocs profil  : Tagline, Bio, Skills, Contact, Story, Interests
+ * Version anglaise : _____<Bloc>.en.md (repli sur le fichier français s'il n'existe pas)
  */
 
 window.ContentLoader = (() => {
@@ -26,8 +27,17 @@ window.ContentLoader = (() => {
     }
   }
 
-  function mdFile(dir, blockName) {
-    return dir ? `${dir}/_____${blockName}.md` : "";
+  function mdFile(dir, blockName, lang = "fr") {
+    if (!dir) return "";
+    return lang === "fr" ? `${dir}/_____${blockName}.md` : `${dir}/_____${blockName}.${lang}.md`;
+  }
+
+  async function fetchBlock(dir, blockName) {
+    if (typeof LANG !== "undefined" && LANG !== "fr") {
+      const localized = await fetchMarkdown(mdFile(dir, blockName, LANG));
+      if (localized) return localized;
+    }
+    return fetchMarkdown(mdFile(dir, blockName));
   }
 
   function projectContentDir(p) {
@@ -55,7 +65,8 @@ window.ContentLoader = (() => {
   function parseParagraphs(raw) {
     if (!raw) return [];
     const body = String(raw)
-      .replace(/^#{1,4}\s+[^\n]+\n+/, "")
+      .replace(/^\s*```.*$/gm, "")
+      .replace(/^\s*#{1,4}\s+[^\n]+\n+/, "")
       .trim();
     if (!body) return [];
     return body
@@ -124,10 +135,10 @@ window.ContentLoader = (() => {
     if (!dir) return project;
 
     const [taglineRaw, pitchRaw, contribRaw, workflowRaw] = await Promise.all([
-      fetchMarkdown(mdFile(dir, "Tagline")),
-      fetchMarkdown(mdFile(dir, "Pitch")),
-      fetchMarkdown(mdFile(dir, "Contributions")),
-      fetchMarkdown(project.workflowFile || mdFile(dir, "Workflow"))
+      fetchBlock(dir, "Tagline"),
+      fetchBlock(dir, "Pitch"),
+      fetchBlock(dir, "Contributions"),
+      project.workflowFile ? fetchMarkdown(project.workflowFile) : fetchBlock(dir, "Workflow")
     ]);
 
     if (taglineRaw) {
@@ -149,14 +160,33 @@ window.ContentLoader = (() => {
     return project;
   }
 
+  function parseTitle(raw) {
+    const m = String(raw).match(/^\s*#{1,4}\s+(.+)$/m);
+    return m ? stripMdInline(m[1]) : "";
+  }
+
   async function hydrateProfile(profile) {
     const dir = profileContentDir(profile);
-    const [taglineRaw, bioRaw, skillsRaw, contactRaw] = await Promise.all([
-      fetchMarkdown(mdFile(dir, "Tagline")),
-      fetchMarkdown(mdFile(dir, "Bio")),
-      fetchMarkdown(mdFile(dir, "Skills")),
-      fetchMarkdown(mdFile(dir, "Contact"))
+    const [taglineRaw, bioRaw, skillsRaw, contactRaw, storyRaw, interestsRaw] = await Promise.all([
+      fetchBlock(dir, "Tagline"),
+      fetchBlock(dir, "Bio"),
+      fetchBlock(dir, "Skills"),
+      fetchBlock(dir, "Contact"),
+      fetchBlock(dir, "Story"),
+      fetchBlock(dir, "Interests")
     ]);
+
+    if (storyRaw) {
+      const story = parseParagraphs(storyRaw);
+      if (story.length) profile.story = story;
+      profile.storyTitle = parseTitle(storyRaw) || profile.storyTitle;
+    }
+    if (interestsRaw) {
+      const withoutBullets = String(interestsRaw).replace(/^\s*[-*]\s+.+$/gm, "");
+      profile.interestsIntro = parseParagraphs(withoutBullets);
+      profile.interests = parseBulletList(interestsRaw);
+      profile.interestsTitle = parseTitle(interestsRaw) || profile.interestsTitle;
+    }
 
     if (taglineRaw) {
       const tagline = parseSingleLine(taglineRaw);

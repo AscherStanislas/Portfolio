@@ -3,11 +3,16 @@
   Textes = fichiers Markdown rechargés via js/content.js (serveur local requis).
 
   Profil : Assets/Profile/_____<Bloc>.md
-    Blocs : Tagline, Bio, Skills, Contact
+    Blocs : Tagline, Bio, Skills, Contact, Story, Interests
 
   Projet (modèle Fling) : Assets/Projects/<Dossier>/_____<Bloc>.md
     Dossier = contentDir OU déduit de previewGif / trailer local
     Blocs : Tagline, Pitch, Contributions, Workflow
+
+  Version anglaise :
+    - textes : _____<Bloc>.en.md à côté du fichier français
+    - données ci-dessous : objet `en: { ... }` qui remplace les champs français
+      (pour gallery / documents / links : une entrée par élément, dans le même ordre)
 */
 
 window.PORTFOLIO = {
@@ -17,18 +22,30 @@ window.PORTFOLIO = {
     tagline: "",
     bio: [],
     avatar: "",
+    photo: "Assets/Profile/Photo.jpg",
     location: "France",
     availability: "",
     email: "a.stanislas@student.isartdigital.com",
-    cv: "https://d11122ad-4261-49d8-8b2f-d953c20b5b44.filesusr.com/ugd/02bbbf_423a604bcd6e412aa402cde0e5ccb747.pdf",
+    cv: "Assets/Profile/CV_Ascher_Stanislas.pdf",
     showcase: {
-      file: "https://video.wixstatic.com/video/02bbbf_39f13e2ebf2840a99fa50d02f5be9b31/1080p/mp4/file.mp4"
+      file: "Assets/Profile/Showcase.mp4"
     },
-    homeFeatured: ["fling", "bloodlust", "teokali"],
+    homeFeatured: ["fling", "bloodlust", "dungeon-scroller"],
     socials: [
       { label: "LinkedIn", url: "https://www.linkedin.com/in/ascher-stanislas-6063a3329/" }
     ],
-    skills: []
+    skills: [],
+    story: [],
+    interestsIntro: [],
+    interests: [],
+    favorites: [
+      { title: "Dark Souls III", kind: "Jeu vidéo", image: "Assets/Profile/Favoris/Dark Souls III.jpg" },
+      { title: "Root", kind: "Jeu de plateau", image: "Assets/Profile/Favoris/Root.jpg" },
+      { title: "World of Warcraft", kind: "Jeu vidéo", image: "Assets/Profile/Favoris/World of Warcraft.jpg" },
+      { title: "Dungeons & Dragons", kind: "Jeu de rôle", image: "Assets/Profile/Favoris/Dungeons and Dragons.png", fit: "contain" },
+      { title: "Civilization VI", kind: "Jeu vidéo", image: "Assets/Profile/Favoris/Civilization VI.jpg" },
+      { title: "League of Legends", kind: "Jeu vidéo", image: "Assets/Profile/Favoris/League of Legends.jpg" }
+    ]
   },
 
   projects: [
@@ -42,24 +59,33 @@ window.PORTFOLIO = {
       category: "academique",
       accent: "#0A3B66",
       previewGif: "Assets/Projects/Fling/Fling Game Preview.gif",
-      cover: "https://static.wixstatic.com/media/02bbbf_4fa852b1766d4325a66a1a84c837a748f000.jpg/v1/fill/w_980,h_950,al_c,q_85/02bbbf_4fa852b1766d4325a66a1a84c837a748f000.jpg",
+      cover: "Assets/Projects/Fling/Fling Cover.jpg",
       genre: "Action / Platformer 2.5D",
       platforms: "PC",
       engine: "Unity",
       duration: "2 mois",
       team: "6 (2 dev, 2 audio, game designers)",
-      role: "Game Designer, Level Designer (niveau 3), Producer",
-      tags: ["Level Design", "Projet académique", "Unity"],
+      role: "Game designer, level designer (niveau 3), producer",
+      tags: ["Level design", "Projet académique", "Unity"],
       trailer: { file: "Assets/Projects/Fling/Fling Game Trailer.mp4" },
       pitch: [],
       contributions: [],
       documents: [],
       gallery: [
-        { src: "https://static.wixstatic.com/media/02bbbf_9a113fe6069542e6b343c23d8e99e739~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/LadyDimitrescu_Fling_Screen_6.png", caption: "Gameplay — Fling" },
-        { src: "https://static.wixstatic.com/media/02bbbf_b22f8c9469584a02b15b56fefe7617ba~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/LadyDimitrescu_Fling_Screen_8.png", caption: "Gameplay — Fling" },
-        { src: "https://static.wixstatic.com/media/02bbbf_70259747f5644f538bb0eb1a1c1432db~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/LadyDimitrescu_Fling_Screen_3.png", caption: "Gameplay — Fling" }
+        { src: "Assets/Projects/Fling/Fling Screen 6.png", caption: "Gameplay — Fling" },
+        { src: "Assets/Projects/Fling/Fling Screen 8.png", caption: "Gameplay — Fling" },
+        { src: "Assets/Projects/Fling/Fling Screen 3.png", caption: "Gameplay — Fling" }
       ],
-      links: [{ label: "Jouer sur itch.io", url: "https://loveneedlove.itch.io/fling" }]
+      links: [{ label: "Jouer sur itch.io", url: "https://loveneedlove.itch.io/fling" }],
+      en: {
+        status: "Completed",
+        genre: "Action / 2.5D platformer",
+        duration: "2 months",
+        team: "6 (2 devs, 2 audio, game designers)",
+        role: "Game designer, level designer (level 3), producer",
+        tags: ["Level design", "Academic project", "Unity"],
+        links: [{ label: "Play on itch.io" }]
+      }
     },
     {
       id: "bloodlust",
@@ -71,24 +97,31 @@ window.PORTFOLIO = {
       category: "academique",
       accent: "#0A3B66",
       previewGif: "Assets/Projects/BloodLust/Bloodlust Preview.gif",
-      cover: "https://static.wixstatic.com/media/02bbbf_39f13e2ebf2840a99fa50d02f5be9b31f000.jpg/v1/fill/w_980,h_950,al_c,q_85/02bbbf_39f13e2ebf2840a99fa50d02f5be9b31f000.jpg",
+      cover: "Assets/Projects/BloodLust/BloodLust Cover.jpg",
       genre: "Brawler 3D",
       platforms: "PC",
       engine: "Unity",
       duration: "2 mois",
       team: "5",
-      role: "Game Designer, IA & enemy behavior, Level Design",
+      role: "Game designer, IA & enemy behavior, level design",
       tags: ["Systèmes", "IA", "Projet académique"],
       trailer: { file: "Assets/Projects/BloodLust/Bloodlust Trailer.mov" },
       pitch: [],
       contributions: [],
       documents: [],
       gallery: [
-        { src: "https://static.wixstatic.com/media/02bbbf_e4440a5cb64c49ce9441f91d87461e33~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/02bbbf_e4440a5cb64c49ce9441f91d87461e33~mv2.png", caption: "BloodLust" },
-        { src: "https://static.wixstatic.com/media/02bbbf_6f3d193c93c94f8e91c2c6d95da396e7~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/02bbbf_6f3d193c93c94f8e91c2c6d95da396e7~mv2.png", caption: "BloodLust" },
-        { src: "https://static.wixstatic.com/media/02bbbf_ea76e6f3eee245babb62f74513548df5~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/05_Brotherhood_Screenshot09.png", caption: "BloodLust" }
+        { src: "Assets/Projects/BloodLust/BloodLust Screen 1.png", caption: "BloodLust" },
+        { src: "Assets/Projects/BloodLust/BloodLust Screen 2.png", caption: "BloodLust" },
+        { src: "Assets/Projects/BloodLust/BloodLust Screen 3.png", caption: "BloodLust" }
       ],
-      links: []
+      links: [],
+      en: {
+        status: "Completed",
+        genre: "3D brawler",
+        duration: "2 months",
+        role: "Game designer, AI & enemy behavior, level design",
+        tags: ["Systems", "AI", "Academic project"]
+      }
     },
     {
       id: "teokali",
@@ -96,84 +129,98 @@ window.PORTFOLIO = {
       contentDir: "Assets/Projects/Teokali",
       tagline: "",
       year: 2024,
-      status: "Terminé — prix école, Orléans Joue",
+      status: "Terminé — prix de l'école, Orléans Joue",
       featured: true,
       category: "academique",
       accent: "#0A3B66",
       previewGif: "",
-      cover: "https://static.wixstatic.com/media/02bbbf_c8032bae6c0147c9904f7f0518a85864~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/StanislasAscher__GD1B_ScreenShot_1.png",
-      genre: "Board game / Coop",
-      platforms: "Jeu de table",
+      cover: "Assets/Projects/Teokali/TEOKALI (1).png",
+      genre: "Jeu coopératif",
+      platforms: "Jeu de plateau",
       engine: "—",
       duration: "2 mois",
       team: "6",
-      role: "Game Designer — economic design & balancing",
+      role: "Game designer — design économique et équilibrage",
       tags: ["Économie", "Équilibrage", "Projet académique"],
+      logo: "Assets/Projects/Teokali/Teokali Logo.png",
+      carousel: true,
       trailer: { youtube: "" },
       pitch: [],
       contributions: [],
       documents: [],
       gallery: [
-        { src: "https://static.wixstatic.com/media/02bbbf_c8032bae6c0147c9904f7f0518a85864~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/StanislasAscher__GD1B_ScreenShot_1.png", caption: "Teokali" },
-        { src: "https://static.wixstatic.com/media/02bbbf_1b94ecc2341f4a51bcdf06394ff57b2d~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/StanislasAscher__GD1B_ScreenShot_3.png", caption: "Teokali" },
-        { src: "https://static.wixstatic.com/media/02bbbf_c5f7167e09ff406ab7c8efecb591023b~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/StanislasAscher__GD1B_ScreenShot_2.png", caption: "Teokali" }
+        { src: "Assets/Projects/Teokali/TEOKALI (1).png", caption: "Teokali" },
+        { src: "Assets/Projects/Teokali/TEOKALI (2).png", caption: "Teokali" },
+        { src: "Assets/Projects/Teokali/TEOKALI (3).png", caption: "Teokali" },
+        { src: "Assets/Projects/Teokali/TEOKALI (4).png", caption: "Teokali" },
+        { src: "Assets/Projects/Teokali/image2.jpg", caption: "Teokali — session de jeu" }
       ],
-      links: []
+      links: [],
+      en: {
+        status: "Completed — school prize, Orléans Joue",
+        genre: "Cooperative game",
+        platforms: "Board game",
+        duration: "2 months",
+        role: "Game designer — economy design & balancing",
+        tags: ["Economy", "Balancing", "Academic project"],
+        gallery: [{}, {}, {}, {}, { caption: "Teokali — play session" }]
+      }
     },
     {
-      id: "trials-of-kuno",
-      title: "Trials of Kuno",
-      contentDir: "Assets/Projects/TrialsOfKuno",
+      id: "dungeon-scroller",
+      title: "Dungeon Scrawler",
+      contentDir: "Assets/Projects/DungeonScroller",
       tagline: "",
-      year: 2024,
+      year: 2026,
       status: "Terminé",
       featured: false,
       category: "academique",
       accent: "#0A3B66",
-      cover: "https://static.wixstatic.com/media/02bbbf_03359f6326a44a2590e4d3ca1c032530f000.jpg/v1/fill/w_980,h_950,al_c,q_85/02bbbf_03359f6326a44a2590e4d3ca1c032530f000.jpg",
-      genre: "One-button / Platformer",
-      platforms: "PC / Mobile",
+      cover: "Assets/Projects/DungeonScroller/Screenshot 1.png",
+      genre: "Dungeon crawler / Roguelite F2P",
+      platforms: "Mobile",
       engine: "Unity",
-      duration: "1,5 mois",
-      team: "Solo",
-      role: "Game Designer — solo project",
-      tags: ["Level Design", "Projet académique", "Solo"],
-      trailer: {
-        file: "https://video.wixstatic.com/video/02bbbf_03359f6326a44a2590e4d3ca1c032530/1080p/mp4/file.mp4"
-      },
-      pitch: [],
-      contributions: [],
-      documents: [],
-      gallery: [
-        { src: "https://static.wixstatic.com/media/02bbbf_c8032bae6c0147c9904f7f0518a85864~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/StanislasAscher__GD1B_ScreenShot_1.png", caption: "Trials of Kuno" },
-        { src: "https://static.wixstatic.com/media/02bbbf_1b94ecc2341f4a51bcdf06394ff57b2d~mv2.png/v1/fill/w_1200,h_750,al_c,q_85/StanislasAscher__GD1B_ScreenShot_3.png", caption: "Trials of Kuno" }
-      ],
-      links: []
-    },
-    {
-      id: "dungeon-scroller",
-      title: "Dungeon Scroller",
-      contentDir: "Assets/Projects/DungeonScroller",
-      tagline: "",
-      year: 2026,
-      status: "À compléter",
-      featured: false,
-      category: "academique",
-      accent: "#0A3B66",
-      cover: "",
-      genre: "",
-      platforms: "",
-      engine: "",
       duration: "",
-      team: "",
-      role: "Game Designer",
-      tags: ["Projet académique"],
-      trailer: { youtube: "" },
+      team: "Tiamat",
+      role: "Game designer",
+      tags: ["F2P", "Mobile", "Projet académique"],
+      trailer: { file: "Assets/Projects/DungeonScroller/F2P_2026_Tiamat_DungeonScrawler_Short_Trailer.mp4" },
       pitch: [],
       contributions: [],
-      documents: [],
-      gallery: [],
-      links: []
+      documents: [
+        {
+          title: "Game Design Document",
+          kind: "GDD",
+          format: "pptx",
+          description: "Déplacement, combat, éditeur d'ennemis, upgrades, core loop, UI, FTUE et méta-progression.",
+          url: "Assets/Projects/DungeonScroller/Documents de production/G.D.D.pptx",
+          preview: "Assets/Projects/DungeonScroller/Documents de production/G.D.D.pdf"
+        },
+        {
+          title: "Document d'économie",
+          kind: "Economy design",
+          format: "xlsx",
+          description: "Courbes d'upgrade par rareté, économie du jeu, drop rates et pity des coffres, design des équipements.",
+          url: "Assets/Projects/DungeonScroller/Documents de production/Document Eco G.D.xlsx",
+          preview: "Assets/Projects/DungeonScroller/Documents de production/Document Eco G.D.pdf"
+        }
+      ],
+      gallery: [
+        { src: "Assets/Projects/DungeonScroller/Screenshot 1.png", caption: "Dungeon Scrawler" },
+        { src: "Assets/Projects/DungeonScroller/Screenshot 2.png", caption: "Dungeon Scrawler" },
+        { src: "Assets/Projects/DungeonScroller/Screenshot 5.png", caption: "Dungeon Scrawler" }
+      ],
+      links: [{ label: "Voir le trailer long", url: "Assets/Projects/DungeonScroller/F2P_2026_Timat_DungeonScrawler_Long_Trailer.mp4" }],
+      en: {
+        status: "Completed",
+        genre: "Dungeon crawler / F2P roguelite",
+        tags: ["F2P", "Mobile", "Academic project"],
+        documents: [
+          { description: "Movement, combat, enemy editor, upgrades, core loop, UI, FTUE and meta-progression." },
+          { title: "Economy document", description: "Upgrade curves by rarity, game economy, chest drop rates and pity, equipment design." }
+        ],
+        links: [{ label: "Watch the long trailer" }]
+      }
     },
     {
       id: "connection",
@@ -181,7 +228,7 @@ window.PORTFOLIO = {
       contentDir: "Assets/Projects/Connection",
       tagline: "",
       year: 2026,
-      status: "À compléter",
+      status: "En cours",
       featured: false,
       category: "perso",
       accent: "#0A3B66",
@@ -191,14 +238,18 @@ window.PORTFOLIO = {
       engine: "",
       duration: "",
       team: "",
-      role: "Game Designer",
+      role: "Game designer",
       tags: ["Projet perso"],
       trailer: { youtube: "" },
       pitch: [],
       contributions: [],
       documents: [],
       gallery: [],
-      links: []
+      links: [],
+      en: {
+        status: "In progress",
+        tags: ["Personal project"]
+      }
     }
   ]
 };
