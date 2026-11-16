@@ -21,7 +21,7 @@ function renderBanner() {
     <div class="home-banner-scrim" aria-hidden="true"></div>
     <div class="home-banner-inner container">
       <div class="home-banner-copy">
-        <p class="home-role">${esc(profile.role)}</p>
+        <p class="home-role">${esc(profile.name)}</p>
         <p class="home-intro">${esc(profile.tagline)}</p>
         ${profile.availability ? `<p class="home-availability">${esc(profile.availability)}</p>` : ""}
         <div class="home-banner-cta">${renderBannerContacts()}</div>

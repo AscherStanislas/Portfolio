@@ -114,13 +114,14 @@ window.PORTFOLIO = {
         { src: "Assets/Projects/BloodLust/BloodLust Screen 2.png", caption: "BloodLust" },
         { src: "Assets/Projects/BloodLust/BloodLust Screen 3.png", caption: "BloodLust" }
       ],
-      links: [],
+      links: [{ label: "Jouer sur itch.io", url: "https://crashyflower.itch.io/bloodlust" }],
       en: {
         status: "Completed",
         genre: "3D brawler",
         duration: "2 months",
         role: "Game designer, AI & enemy behavior, level design",
-        tags: ["Systems", "AI", "Academic project"]
+        tags: ["Systems", "AI", "Academic project"],
+        links: [{ label: "Play on itch.io" }]
       }
     },
     {

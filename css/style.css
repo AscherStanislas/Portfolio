@@ -387,6 +387,7 @@ a.lang-option:hover { color: var(--text-on-dark); background: var(--accent-soft)
 
 .engine-badge {
   position: absolute;
+  z-index: 2;
   top: .85rem;
   right: .85rem;
   display: inline-flex;
